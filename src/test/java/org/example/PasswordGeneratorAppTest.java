@@ -23,4 +23,11 @@ class PasswordGeneratorAppTest {
         assertEquals(12, password.length());
         assertTrue(password.matches("[A-Z]+"), "Contains only uppercase letters");
     }
+    @Test
+    void testGeneratePasswordWithEmptyLength() {
+        PasswordGeneratorApp generator = new PasswordGeneratorApp();
+        String password = generator.generatePassword(0, true, false, false, false);
+        assertEquals("", password); // Oczekujemy pustego hasła
+    }
+
 }
